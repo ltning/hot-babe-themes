@@ -1,0 +1,6 @@
+#threshold 30
+incremental
+#noNice
+nice 5
+delay 1000
+#dir maid
