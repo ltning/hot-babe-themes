@@ -121,10 +121,10 @@ esac
 
 wait=0
 while [ $wait -lt 10 ] ; do
-    if [ $(xdotool search --name hot-babe | wc -l) -gt 0 ] ; then
+    if [ $(xdotool search --class hot-babe | wc -l) -gt 0 ] ; then
         echo "The Hot Babe is here, relocating.."
         sleep 0.5
-        xdotool search --name hot-babe windowmove %2 $posX $posY windowstate --add BELOW %2
+        xdotool search --class hot-babe windowmove %1 $posX $posY windowstate --add BELOW %1
         exit 0
     else
         wait=$((wait+2))
