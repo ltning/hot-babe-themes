@@ -1,4 +1,32 @@
 #!/bin/sh
+usage() {
+    echo "${0} - Position hot-babe on screen."
+    echo 'Usage:'
+    echo "  ${0} [<theme>] [<X margin> <Y margin> <X alignment> <Y alignment>] [<Z-order>]"
+    echo ' where'
+    echo '  <theme> is the name of a theme directory in ~/.hot-babe or "default",'
+    echo '  <X/Y margin> is given in pixels or percentage of screensize (integer only),'
+    echo '  <X/Y alignment> is given as left/right and top/bottom, respectively, and'
+    echo '  <Z-order> is above or below. This option can be given independently of the'
+    echo '            other positioning arguments; if given it must come last (or instead'
+    echo '            of the theme name).'
+    echo
+    echo 'If <theme> is not specified (or "default" is given), the script will try to'
+    echo 'find a running Hot Babe and determine if a "--dir <theme>" argument was given.'
+    echo
+    echo 'Note that this script will only make a limited effort at locating the'
+    echo 'files for the default theme; locate it and copy to your ~/.hot-babe if'
+    echo 'this fails.'
+    echo
+    echo 'Default values are: Zero margins, bottom-right alignment, below other windows.'
+    echo
+    exit 1
+}
+
+if [ $# -eq 0 ] ; then
+    usage
+fi
+
 #### Configuration/Defaults ####
 
 # Theme directory name
@@ -59,30 +87,6 @@ Ymargin=${2:-0} # Default no vertical margin
 Xalign=${3:-right} # Default right-edge
 Yalign=${4:-bottom} # Default bottom-edge
 
-
-usage() {
-    echo '${0} - Position hot-babe on screen.'
-    echo 'Usage:'
-    echo "  ${0} [<theme>] [<X margin> <Y margin> <X alignment> <Y alignment>] [<Z-order>]"
-    echo ' where'
-    echo '  <theme> is the name of a theme directory in ~/.hot-babe or "default",'
-    echo '  <X/Y margin> is given in pixels or percentage of screensize (integer only),'
-    echo '  <X/Y alignment> is given as left/right and top/bottom, respectively, and'
-    echo '  <Z-order> is above or below. This option can be given independently of the'
-    echo '            other positioning arguments; if given it must come last (or instead'
-    echo '            of the theme name).'
-    echo
-    echo 'If <theme> is not specified (or "default" is given), the script will try to'
-    echo 'find a running Hot Babe and determine if a "--dir <theme>" argument was given.'
-    echo
-    echo 'Note that this script will only make a limited effort at locating the'
-    echo 'files for the default theme; locate it and copy to your ~/.hot-babe if'
-    echo 'this fails.'
-    echo
-    echo 'Default values are: Zero margins, bottom-right alignment, below other windows.'
-    echo
-    exit 1
-}
 
 if [ "${1}" ] ; then
     # If we have any arguments remaining..
