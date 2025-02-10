@@ -20,4 +20,4 @@ The original images have been found through various image searches, and despite 
 See license file. The theme image files may be from other origins and thus not necessarily covered under the default license. Fair-use rights are assumed.
 
 # Usage
-Install `hot-babe`, `xdotool` and `xprop`. Clone this repository - I suggest you name it `~/.hot-babe`. Pick a theme, and run `hot-babe --dir <theme>, followed by `sh move.sh <theme>`. Run `sh move.sh` without parameters to see the options you can pass.
+Install `hot-babe`, `xdotool` and `xprop`. Clone this repository - I suggest you name it `~/.hot-babe`. Pick a theme, and run `hot-babe --dir <theme>`, followed by `sh move.sh <theme>`. Run `sh move.sh` without parameters to see the options you can pass.
